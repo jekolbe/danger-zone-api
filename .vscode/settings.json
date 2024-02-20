@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/b443f9b7-f121-4abd-9c7d-e5845373f480/resourceGroups/danger-zone-rg/providers/Microsoft.Web/sites/danger-zone-api",
+    "appService.deploySubpath": "."
+}
