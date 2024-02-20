@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: Trips API
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /trips:
+    get:
+      operationId: tripsGET
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Trip'
+                type: array
+          description: A list of trips
+      summary: List all trips
+      x-eov-operation-handler: controllers/DefaultController
+  /trips/{id}:
+    get:
+      operationId: tripsIdGET
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+          description: A single trip
+        "404":
+          description: Trip not found
+      summary: Get a trip by ID
+      x-eov-operation-handler: controllers/DefaultController
+components:
+  schemas:
+    Trip:
+      example:
+        price: 6.027456183070403
+        name: name
+        description: description
+        id: 0
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+      type: object
