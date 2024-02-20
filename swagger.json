@@ -1,0 +1,70 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Trips API",
+      "version": "1.0.0",
+      "description": "API for managing trips"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": ["http"],
+    "paths": {
+      "/trips": {
+        "get": {
+          "summary": "List all trips",
+          "responses": {
+            "200": {
+              "description": "A list of trips",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Trip"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/trips/{id}": {
+        "get": {
+          "summary": "Get a single trip",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A single trip",
+              "schema": {
+                "$ref": "#/definitions/Trip"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Trip": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "dangerousness": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  
