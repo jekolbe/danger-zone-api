@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 
 const TripSchema = new mongoose.Schema({
     id: Number,
-    name: String,
+    title: String,
     description: String,
-    price: Number,
     dangerousness: String,
 });
 

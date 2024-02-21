@@ -11,7 +11,7 @@ exports.listAllTrips = async (req, res) => {
 
 exports.getSingleTrip = async (req, res) => {
   try {
-    const trip = await Trip.findById(req.params.id);
+    const trip = await Trip.findOne({id: req.params.id});
     console.log(trip);
     if (!trip) {
       return res.status(404).json({ message: 'Cannot find trip' });
